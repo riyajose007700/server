@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-black text-white;
+  font-family: 'Poppins', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black/20;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-700 rounded-full hover:bg-neutral-600;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] to-[#FFA500];
+}
+
+.glass-card {
+  @apply bg-black/40 backdrop-blur-md border border-[#FFD700]/20 transition-all duration-300;
+}
+
+.hover-scale {
+  @apply hover:scale-[1.02] hover:-translate-y-1;
+}
+
+.hover-glow {
+  @apply hover:shadow-[0_0_20px_rgba(255,215,0,0.15)];
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #404040 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #404040;
+  border-radius: 20px;
+}
+
+.parallax-bg {
+  @apply fixed inset-0 pointer-events-none;
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(-1px) scale(2);
+}
+
+.feature-card {
+  @apply relative overflow-hidden rounded-xl p-6 transition-all duration-500;
+  background: linear-gradient(45deg, rgba(26, 26, 26, 0.8), rgba(0, 0, 0, 0.8));
+}
+
+.feature-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-[#FFD700]/20 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.feature-card:hover::before {
+  @apply opacity-100;
+}
+
+.feature-card::after {
+  content: '';
+  @apply absolute -inset-[2px] bg-gradient-to-r from-[#FFD700]/50 to-transparent rounded-xl opacity-0 transition-opacity duration-300;
+  z-index: -1;
+}
+
+.feature-card:hover::after {
+  @apply opacity-100;
+}
+
+.nav-link {
+  @apply relative text-white/80 hover:text-white transition-colors;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-[#FFD700] transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
